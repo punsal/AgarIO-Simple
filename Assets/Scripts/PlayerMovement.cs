@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsClicked)
         {
             transform.position = Vector3.MoveTowards(transform.position,
-                MouseTarget, speed * Time.deltaTime);
+                MouseTarget, speed * Time.deltaTime / transform.localScale.x);
         }
     }
 }
