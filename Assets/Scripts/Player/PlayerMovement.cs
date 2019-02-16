@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+    #region Attributes in Editor
+    public float speed = 5f;
+    #endregion
+    #region Input Handling Attributes
     private bool isClicked = false;
-
     public bool IsClicked
     {
         get {
@@ -23,9 +26,7 @@ public class PlayerMovement : MonoBehaviour {
             return isClicked;
         }
     }
-
     private Vector3 target;
-
     public Vector3 Target
     {
         get {
@@ -35,15 +36,7 @@ public class PlayerMovement : MonoBehaviour {
             return target;
         }
     }
-
-
-
-    public float speed = 5f;
-    // Start is called before the first frame update
-    void Start() {
-
-    }
-
+    #endregion
     // Update is called once per frame
     void Update() {
         if(IsClicked) {
