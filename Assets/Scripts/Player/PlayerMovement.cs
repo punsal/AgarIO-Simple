@@ -1,4 +1,4 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsClicked
     {
         get {
+#if UNITY_STANDALONE
+            Debug.Log("Unity Standalone");
             if(Input.GetMouseButtonDown(0)) {
                 switch(isClicked) {
                     case true:
@@ -23,6 +25,17 @@ public class PlayerMovement : MonoBehaviour {
                         break;
                 }
             }
+#endif
+#if UNITY_ANDROID
+            Debug.Log("Unity Android");
+            if(Input.touches.Length > 0){
+                isClicked = true;
+            }
+            else
+            {
+                isClicked = false;
+            }
+#endif
             return isClicked;
         }
     }
